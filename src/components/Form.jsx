@@ -78,13 +78,19 @@ const Form = () => {
   };
 
   // Calculate the current date in the YYYY-MM-DD format
-  const currentDate = new Date();
-  const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
-  const day = String(currentDate.getDate()).padStart(2, "0");
-  const today = `${year}-${month}-${day}`;
+
+
+  const today = () => {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const day = String(currentDate.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
 
   const page = json.pages[currentPage];
+
 
   return (
     <div className='Form'>
@@ -145,7 +151,7 @@ const Form = () => {
                       onChange={handleFieldChange}
                       required={field.validation.required}
                       min="1924-10-13"
-                      max={today}
+                      max={today()}
 
                     />
 
