@@ -78,8 +78,6 @@ const Form = () => {
   };
 
   // Calculate the current date in the YYYY-MM-DD format
-
-
   const today = () => {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
